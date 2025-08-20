@@ -4,8 +4,8 @@ public class Bezoekers extends Persoon {
 
     private String bezoekerID;
 
-    public Bezoekers(LocalDate geboortedatum, String adresse, String name, String bezoekerID) {
-        super(geboortedatum, adresse, name);
+    public Bezoekers(LocalDate geboortedatum, String adresse, String naam, String bezoekerID) {
+        super(geboortedatum, adresse, naam);
         this.bezoekerID = bezoekerID;
     }
 

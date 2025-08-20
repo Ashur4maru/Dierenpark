@@ -2,11 +2,11 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
-public class Persoon {
+public abstract class Persoon {
 
-    public  String naam;
-    public String adresse;
-    public LocalDate geboortedatum;
+    private  String naam;
+    private String adresse;
+    private LocalDate geboortedatum;
     private static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
     public Persoon(LocalDate geboortedatum, String adresse, String name) {
@@ -15,12 +15,12 @@ public class Persoon {
         this.naam = naam;
     }
 
-    public String getName() {
+    public String getNaam() {
         return naam;
     }
 
-    public void setName(String name) {
-        this.naam = name;
+    public void setNaam(String name) {
+        this.naam = naam;
     }
 
     public String getAdresse() {
