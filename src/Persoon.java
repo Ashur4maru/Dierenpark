@@ -1,23 +1,26 @@
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 public class Persoon {
 
-    public  String name;
+    public  String naam;
     public String adresse;
-    public Date geboortedatum;
+    public LocalDate geboortedatum;
+    private static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
-    public Persoon(Date geboortedatum, String adresse, String name) {
+    public Persoon(LocalDate geboortedatum, String adresse, String name) {
         this.geboortedatum = geboortedatum;
         this.adresse = adresse;
-        this.name = name;
+        this.naam = naam;
     }
 
     public String getName() {
-        return name;
+        return naam;
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.naam = name;
     }
 
     public String getAdresse() {
@@ -28,11 +31,19 @@ public class Persoon {
         this.adresse = adresse;
     }
 
-    public Date getGeboortedatum() {
+    public LocalDate getGeboortedatum() {
         return geboortedatum;
     }
 
-    public void setGeboortedatum(Date geboortedatum) {
+    public void setGeboortedatum(LocalDate geboortedatum) {
         this.geboortedatum = geboortedatum;
+    }
+
+    @Override
+    public String toString() {
+        return "Naam: " + naam +
+                "\nAdres: " + adresse +
+                "\nGeboortedatum: " + geboortedatum.format(DATE_FORMATTER) +
+                "\n----------------------";
     }
 }
