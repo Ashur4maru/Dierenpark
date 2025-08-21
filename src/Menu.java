@@ -1,13 +1,18 @@
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Menu{
 
-    private PersoonBeheer beheer;
+    private List<Bezoeker>bezoekerLijst;
+    private List<Personeel>personeellijst;
     private Scanner scanner;
 
     public Menu(){
+        bezoekerLijst = new ArrayList<>();
+        personeellijst = new ArrayList<>();
         this.scanner = new Scanner(System.in);
     }
 
@@ -30,6 +35,9 @@ public class Menu{
 
             switch(keuze){
                 case 1: maakPersoneel();
+                    break;
+                case 2: maakBezoeker();
+                    break;
                 case 0: System.exit(0);
                 default:
                     System.out.println("Ongeldige Keuze");
@@ -53,8 +61,27 @@ public class Menu{
         System.out.println("Functie: ");
         String functie = scanner.nextLine();
 
-        Personeel nieuwePersoneel = new Personeel(naam, adresse , geboortedatum, personeelsnummer, functie);
-        beheer.voegPersoneelToe(nieuwePersoneel);
-        System.out.println("Personeel aangemaaakt");
+        Personeel personeel = new Personeel(naam, adresse ,  geboortedatum, personeelsnummer, functie);
+        personeellijst.add(personeel);
+        System.out.println("Personeel aangemaakt");
+
+    }
+
+    public void maakBezoeker(){
+        System.out.println("Naam: ");
+        String naam = scanner.nextLine();
+
+        System.out.println("Adresse: ");
+        String adresse = scanner.nextLine();
+
+        System.out.println("Geboortedatum (dd-mm-yyyy): ");
+        LocalDate geboortedatum = LocalDate.parse(scanner.nextLine(), DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+
+        System.out.println("Bezoeked ID: ");
+        String bezoekedId = scanner.nextLine();
+
+        Bezoeker bezoeker = new Bezoeker(naam, adresse, geboortedatum, bezoekedId);
+        bezoekerLijst.add(bezoeker);
+        System.out.println("Bezoeker aangemaken");
     }
 }
