@@ -1,25 +1,22 @@
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
-
-public class Activiteit {
+public class Tour {
 
     private String naam;
 
-    public Activiteit(String naam) {
+    public Tour(String naam) {
         this.naam = naam;
     }
 
     public String getNaam() {
         return naam;
     }
+
     public void setNaam(String naam) {
         this.naam = naam;
     }
 
     @Override
     public String toString() {
-        return "Activiteit{" +
+        return "Tour{" +
                 "naam='" + naam + '\'' +
                 '}';
     }

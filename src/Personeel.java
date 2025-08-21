@@ -31,6 +31,6 @@ public class Personeel extends Persoon{
     public String toString() {
         return super.toString() +
                 "\nPersoneelsnummer: " + personeelsnummer +
-                "\nFunctie: " + functie; // Voeg functie toe aan de stringrepresentatie
+                "\nFunctie: " + functie + "\n----------------------"; // Voeg functie toe aan de stringrepresentatie
     }
 }

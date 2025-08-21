@@ -19,8 +19,6 @@ public class Bezoeker extends Persoon {
 
     @Override
     public String toString() {
-        return "Bezoeker{" +
-                "bezoekerID='" + bezoekerID + '\'' +
-                '}';
+        return super.toString() + "\nBezoeker ID: " + bezoekerID + "\n----------------------";
     }
 }

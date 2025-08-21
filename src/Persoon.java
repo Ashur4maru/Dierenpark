@@ -43,7 +43,6 @@ public abstract class Persoon {
     public String toString() {
         return "Naam: " + naam +
                 "\nAdres: " + adresse +
-                "\nGeboortedatum: " + geboortedatum.format(DATE_FORMATTER) +
-                "\n----------------------";
+                "\nGeboortedatum: " + geboortedatum.format(DATE_FORMATTER);
     }
 }
