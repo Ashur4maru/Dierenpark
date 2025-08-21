@@ -1,13 +1,12 @@
 import java.time.LocalDate;
-import java.util.Date;
 
 public class Personeel extends Persoon{
 
     private String personeelsnummer;
     private String functie;
 
-    public Personeel(LocalDate geboortedatum, String adresse, String name, String personeelsnummer,String functie) {
-        super(geboortedatum, adresse, name);
+    public Personeel(String naam, String adresse, LocalDate geboortedatum, String personeelsnummer, String functie) {
+        super(naam, adresse, geboortedatum);
         this.personeelsnummer = personeelsnummer;
         this.functie = functie;
     }

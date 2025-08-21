@@ -2,102 +2,59 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
-public class Menu {
+public class Menu{
+
     private PersoonBeheer beheer;
     private Scanner scanner;
-    private static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("dd-MM-yyyy");
 
-    public Menu() {
-        this.beheer = new PersoonBeheer();
+    public Menu(){
         this.scanner = new Scanner(System.in);
     }
 
-    public void start() {
-        toonHoofdMenu();
-    }
+    public void start(){
 
-    private void toonHoofdMenu() {
-        while (true) {
-            System.out.println("\n========= PERSONENBEHEER =========");
-            System.out.println("1. Nieuwe bezoeker toevoegen");
-            System.out.println("2. Nieuwe personeelslid toevoegen");
-            System.out.println("3. Personen overzicht");
-            System.out.println("4. Persoon zoeken");
-            System.out.println("5. Persoon verwijderen");
-            System.out.println("6. Afsluiten");
+        while(true){
+            System.out.println("\n========= Menu =========");
+            System.out.println("1. Aanmaken Personeelsleden");
+            System.out.println("2. Aanmaken Bezoeker");
+            System.out.println("3. Aanmaken Activiteit");
+            System.out.println("4. Aanmaken Tour");
+            System.out.println("5. Lijst Personeelsleden");
+            System.out.println("6. Lijst Bezoekers");
+            System.out.println("7. Registreren Bezoeker aan tour");
+            System.out.println("8. Toewijzen van Personeelsleden");
+            System.out.println("9. Tour info printen");
+            System.out.println("0. Afsluiten");
             System.out.print("Keuze: ");
-
             int keuze = Integer.parseInt(scanner.nextLine());
 
-            switch (keuze) {
-                case 1: voegBezoekerToe(); break;
-                case 2: voegPersoneelslidToe(); break;
-                case 3: toonPersonen(); break;
-                case 4: zoekPersoon(); break;
-                case 5: verwijderPersoon(); break;
-                case 6: System.exit(0);
-                default: System.out.println("Ongeldige keuze!");
+            switch(keuze){
+                case 1: maakPersoneel();
+                case 0: System.exit(0);
+                default:
+                    System.out.println("Ongeldige Keuze");
             }
         }
     }
 
-    private void voegBezoekerToe() {
-        System.out.print("Naam: ");
+    public void maakPersoneel(){
+        System.out.println("Naam: ");
         String naam = scanner.nextLine();
 
-        System.out.print("Adres: ");
-        String adres = scanner.nextLine();
-
-        System.out.print("Geboortedatum (dd-mm-jjjj): ");
-        LocalDate geboortedatum = LocalDate.parse(scanner.nextLine(), DATE_FORMATTER);
-
-        System.out.print("Bezoeker ID: ");
-        String bezoekerID = scanner.nextLine();
-
-        beheer.voegpersonen(new Bezoekers(geboortedatum, adres, naam, bezoekerID));
-        System.out.println("Bezoeker toegevoegd!");
-    }
-
-    private void voegPersoneelslidToe() {
-        System.out.print("Naam: ");
-        String naam = scanner.nextLine();
-
-        System.out.print("Adres: ");
+        System.out.println("Adresse: ");
         String adresse = scanner.nextLine();
 
-        System.out.print("Geboortedatum (dd-mm-jjjj): ");
-        LocalDate geboortedatum = LocalDate.parse(scanner.nextLine(), DATE_FORMATTER);
+        System.out.println("Geboortedatum (dd-mm-yyyy): ");
+        LocalDate geboortedatum = LocalDate.parse(scanner.nextLine(), DateTimeFormatter.ofPattern("dd-MM-yyyy"));
 
-        System.out.print("Personeelsnummer: ");
+        System.out.println("Personeelsnummer");
         String personeelsnummer = scanner.nextLine();
 
-        System.out.print("Functie: "); // Vraag naar functie
+        System.out.println("Functie: ");
         String functie = scanner.nextLine();
 
-        beheer.voegpersonen(new Personeel(geboortedatum, adresse, naam, personeelsnummer, functie));
-        System.out.println("Personeelslid toegevoegd!");
-    }
-
-    private void toonPersonen() {
-        System.out.println("\n--- PERSONENLIJST ---");
-        beheer.getPersonen().forEach(System.out::println);
-    }
-
-    private void zoekPersoon() {
-        System.out.print("Zoekterm: ");
-        String term = scanner.nextLine();
-        beheer.zoekPersonen(term).forEach(System.out::println);
-    }
-
-    private void verwijderPersoon() {
-        toonPersonen();
-        System.out.print("Index van te verwijderen persoon: ");
-        int index = Integer.parseInt(scanner.nextLine()) - 1;
-
-        if (beheer.verwijderenPersoon(index)) {
-            System.out.println("Persoon verwijderd!");
-        } else {
-            System.out.println("Ongeldige index!");
-        }
+        Personeel nieuwePersoneel = new Personeel(naam, adresse , geboortedatum, personeelsnummer, functie);
+        beheer.voegPersoneelToe(nieuwePersoneel);
+        System.out.println("Personeel aangemaaakt");
     }
 }

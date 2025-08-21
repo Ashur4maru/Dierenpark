@@ -1,42 +1,58 @@
 import java.util.ArrayList;
+import java.util.List;
 
 public class PersoonBeheer {
 
-    private ArrayList<Persoon> personen;
+    private List<Personeel> personeelsleden;
+    private List<Bezoeker>  bezoekers;
 
-    public PersoonBeheer() {
-        personen = new ArrayList<>();
+    public PersoonBeheer(List<Personeel> personeelsleden, List<Bezoeker> bezoekers) {
+        this.personeelsleden = personeelsleden;
+        this.bezoekers = bezoekers;
     }
 
-    public void voegpersonen(Persoon persoon) {
-        personen.add(persoon);
+    public List<Personeel> getPersoneelsleden() {
+        return personeelsleden;
     }
 
-    public boolean verwijderenPersoon(int index){
-        if (index >= 0 && index < personen.size()){
-            personen.remove(index);
+    public void setPersoneelsleden(List<Personeel> personeelsleden) {
+        this.personeelsleden = personeelsleden;
+    }
+
+    public List<Bezoeker> getBezoekers() {
+        return bezoekers;
+    }
+
+    public void setBezoekers(List<Bezoeker> bezoekers) {
+        this.bezoekers = bezoekers;
+    }
+
+    //Toevoegen van Personeel en Bezoekers
+
+    public void voegPersoneelToe(Personeel personeel) {
+        personeelsleden.add(personeel);
+    }
+
+    public void voegBezoekerToe(Bezoeker bezoeker){
+        bezoekers.add(bezoeker);
+    }
+
+    //Verwijderen van Personeel en Bezoekers
+
+    public boolean verwijderenPersoneel(int index) {
+        if(index >= 0 && index < personeelsleden.size()){
+            personeelsleden.remove(index);
             return true;
         }
         return false;
     }
 
-    public ArrayList<Persoon> getPersonen() {
-        return personen;
-    }
-
-    public void setPersonen(ArrayList<Persoon> personen) {
-        this.personen = personen;
-    }
-
-    public ArrayList<Persoon> zoekPersonen(String zoekterm) {
-        ArrayList<Persoon> resultaten = new ArrayList<>();
-        String lowerZoekterm = zoekterm.toLowerCase();
-
-        for (Persoon p : personen) {
-            if (p.getNaam().toLowerCase().contains(lowerZoekterm)) {
-                resultaten.add(p);
-            }
+    public boolean verwijderenBezoeker(int index) {
+        if(index >= 0 && index < bezoekers.size()){
+            bezoekers.remove(index);
+            return true;
         }
-        return resultaten;
+        return false;
     }
+
 }

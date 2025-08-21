@@ -9,10 +9,10 @@ public abstract class Persoon {
     private LocalDate geboortedatum;
     private static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
-    public Persoon(LocalDate geboortedatum, String adresse, String name) {
-        this.geboortedatum = geboortedatum;
-        this.adresse = adresse;
+    public Persoon(String naam, String adresse, LocalDate geboortedatum) {
         this.naam = naam;
+        this.adresse = adresse;
+        this.geboortedatum = geboortedatum;
     }
 
     public String getNaam() {

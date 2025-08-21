@@ -1,24 +1,26 @@
 import java.time.LocalDate;
 
-public class Bezoekers extends Persoon {
+public class Bezoeker extends Persoon {
 
     private String bezoekerID;
 
-    public Bezoekers(LocalDate geboortedatum, String adresse, String naam, String bezoekerID) {
-        super(geboortedatum, adresse, naam);
+    public Bezoeker(String naam, String adresse, LocalDate geboortedatum, String bezoekerID) {
+        super(naam, adresse, geboortedatum);
         this.bezoekerID = bezoekerID;
     }
 
     public String getBezoekerID() {
         return bezoekerID;
     }
+
     public void setBezoekerID(String bezoekerID) {
         this.bezoekerID = bezoekerID;
     }
 
     @Override
     public String toString() {
-        return super.toString() +
-                "\nBezoeker ID: " + bezoekerID;
+        return "Bezoeker{" +
+                "bezoekerID='" + bezoekerID + '\'' +
+                '}';
     }
 }
