@@ -2,6 +2,8 @@
 
 Dit project simuleert de werking van een dierenpark, met een focus op personen, activiteiten, tours en zones. Alle variabelen die personen voorstellen hebben een naamvariant op "betrapt". De applicatie is bedoeld als oefening in objectgeoriënteerd programmeren (Java).
 
+> Let op: Voor de ontwikkeling van dit project zijn AI-tools gebruikt om het schrijven, genereren en/of optimaliseren van code, documentatie en andere inhoud te ondersteunen.
+
 ## Inhoud
 
 - [Beschrijving](#beschrijving)
@@ -98,6 +100,5 @@ Kies een optie:
 
 ## Auteurs
 
-- Opdrachtgever: [Jouw naam of docent]
-- Ontwikkelaar: Ashur4maru
+- Ontwikkelaar: Rakim Benkirane
 
